@@ -1,0 +1,16 @@
+{
+  "name": "clan15",
+  "version": "0.0.0",
+  "description": "clan15",
+  "main": "app.js",
+  "author": {
+    "name": "bozivkovic",
+    "email": ""
+  },
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "express": "3.4.4",
+    "mysql": "^2.10.2",
+    "stylus": "*"
+  }
+}
