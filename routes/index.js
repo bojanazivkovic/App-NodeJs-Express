@@ -14,11 +14,11 @@ exports.index = function (req, res) {
 
 
 exports.indexPost = function (req, res) {
-    var jmbg = req.body.unosJMBG; //hvatamo sa unos jmbg unet jmbg broj
-    if (!jmbg) { //ako nema unetog jmbg broja izbacujemo poruku
+    var jmbg = req.body.unosJMBG; 
+    if (!jmbg) { 
         res.render('index', { title: 'Clan 15', message: 'Morate uneti JMBG!' });
 
-    } else {//ako je unet jmbg, proveravamo da li postoji u bazi
+    } else {
         
       var podaci=  connection.query('SELECT * FROM korisnik WHERE jmbg = ?', jmbg, function (error, rows) {
             if (error) throw error
@@ -26,9 +26,9 @@ exports.indexPost = function (req, res) {
                 var row = rows[i];
             console.log(row);
             
-            if (!row) {//ako ne postoji taj jmbg u bazi, izbacujem poruku
+            if (!row) {
                 res.render('index', { title: 'Clan 15', message: 'Ne postoji JMBG!' });
-            } else//ako postoji jmbg u bazi, idemo na stranu za unos korisnika i prosledjujemo podatke vezane za taj jmbg
+            } else
                 res.render('unos', { title: 'Azuriranje podataka', podaci:rows });
         });
     }
